@@ -1,4 +1,4 @@
-# MLX_LLM.cpp
+# MLX_NN.cpp
 
 The project is an attempt to create the high level C++ Frontend API for MLX Framework, adding LLM models similar to llama.cpp. This is done to use the useful array API developed by the contributions of the Apple team and the MLX community to bring NN on M series MacBook GPUs.   
 
@@ -18,14 +18,14 @@ The project is an attempt to create the high level C++ Frontend API for MLX Fram
 1. Build and Install the mlx library from the [documentation](https://ml-explore.github.io/mlx/build/html/install.html)
 2. Git clone the repository.
    ```
-   git clone https://github.com/guptaaryan16/mlx_llm.cpp
+   git clone https://github.com/guptaaryan16/mlx_nn.cpp
    ```
 3. Run the commands 
    ```
-   cd mlx_llm.cpp
+   cd mlx_nn.cpp
    cmake .  
    make 
-   ./MLX_llm_output test_nn.safetensors
+   examples/test_model examples/test_nn.safetensors
    ```
    The above command runs the test file for the mlx_llm API. More API for the models is expected in future.
 
