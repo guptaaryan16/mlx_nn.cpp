@@ -1,0 +1,50 @@
+cmake_minimum_required(VERSION 3.15)
+project(mlx_nn VERSION 0.1.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Find MLX package
+find_package(mlx REQUIRED)
+
+# Add library
+add_library(mlx_nn
+    src/module.cpp
+    src/linear.cpp
+    src/llama_model.cpp
+    src/utils.cpp
+)
+
+target_include_directories(mlx_nn PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+
+target_link_libraries(mlx_nn PUBLIC mlx)
+
+# Add examples
+add_subdirectory(examples)
+
+# Add tests
+enable_testing()
+# add_subdirectory(tests)
+
+# Install rules
+install(TARGETS mlx_nn
+    EXPORT mlx_llmTargets
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    RUNTIME DESTINATION bin
+    INCLUDES DESTINATION include
+)
+
+# # ----------------------------- Output Directory -----------------------------
+# set_target_properties(mlx_llm PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${BUILD_DIR})  
+# # Set the output directory for the library
+
+# # ----------------------------- Install -----------------------------
+install(TARGETS mlx_nn
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin)
+install(FILES ${SOURCE_DIR}/llm.cpp DESTINATION include)

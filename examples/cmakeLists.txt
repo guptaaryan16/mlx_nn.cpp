@@ -1,0 +1,6 @@
+add_executable(test_model test_model.cpp)
+target_link_libraries(test_model PUBLIC mlx_nn)
+target_link_libraries(test_model PUBLIC mlx)
+# Include directories
+include_directories(${CMAKE_SOURCE_DIR}/include)
+add_test(NAME test_model COMMAND test_model)
