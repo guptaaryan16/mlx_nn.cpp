@@ -37,14 +37,3 @@ install(TARGETS mlx_nn
     RUNTIME DESTINATION bin
     INCLUDES DESTINATION include
 )
-
-# # ----------------------------- Output Directory -----------------------------
-# set_target_properties(mlx_llm PROPERTIES ARCHIVE_OUTPUT_DIRECTORY ${BUILD_DIR})  
-# # Set the output directory for the library
-
-# # ----------------------------- Install -----------------------------
-install(TARGETS mlx_nn
-  ARCHIVE DESTINATION lib
-  LIBRARY DESTINATION lib
-  RUNTIME DESTINATION bin)
-install(FILES ${SOURCE_DIR}/llm.cpp DESTINATION include)
