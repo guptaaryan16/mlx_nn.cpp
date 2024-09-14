@@ -31,9 +31,15 @@ enable_testing()
 
 # Install rules
 install(TARGETS mlx_nn
-    EXPORT mlx_llmTargets
+    EXPORT mlx_nn
     LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
-    RUNTIME DESTINATION bin
-    INCLUDES DESTINATION include
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+
+install(EXPORT mlx_nn
+  FILE
+    mlx_nnTargets.cmake
+  DESTINATION
+    ${CMAKE_INSTALL_LIBDIR}/cmake/mlx_nn
 )
