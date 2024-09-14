@@ -27,7 +27,7 @@ array CustomLayer::forward(const array &input)
             "Input size doesn't match weight vector size");
     }
     // Allocate space for the outputs
-    array outputs = matmul(input, parameters.at("weight"));
+    array outputs = matmul(input, parameters.at("weight"), device);
 
     auto y = with_bias ? (outputs + parameters.at("bias")) : outputs;
     return l1->forward(y);
